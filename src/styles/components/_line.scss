@@ -13,3 +13,19 @@
 .table {
   min-width: 200;
 }
+a {
+  .Button {
+    list-style: none;
+    text-decoration: none;
+    background: orangered !important;
+    &--item {
+      color: white;
+      font-size: 30px;
+      display: block;
+    }
+  }
+}
+a:link {
+  list-style: none;
+  text-decoration: none;
+}

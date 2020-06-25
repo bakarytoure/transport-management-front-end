@@ -8,5 +8,4 @@ const getAll = () => {
 const findLineByCity = (id) => {
   return http.get(`/city/${id}/line`);
 };
-
 export default { findByCityName, getAll, findLineByCity };

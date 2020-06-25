@@ -7,7 +7,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import TableBody from "@material-ui/core/TableBody";
-
+import "w3-css/3/w3.css";
 import { withStyles } from "@material-ui/core/styles";
 
 const StyledTableCell = withStyles((theme) => ({
@@ -36,8 +36,8 @@ const rows = [
 ];
 
 function Operator() {
-  return (
-    <Grid item xs={12} sm={6}>
+  return {
+    /*<Grid item xs={12} sm={6}>
       <Paper className="paper_C text-secondary container">
         Operators
         <TableContainer component={Paper}>
@@ -65,8 +65,8 @@ function Operator() {
           </Table>
         </TableContainer>
       </Paper>
-    </Grid>
-  );
+              </Grid>*/
+  };
 }
 
 export default Operator;

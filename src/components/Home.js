@@ -19,7 +19,7 @@ function Home(props) {
   //let history = useHistory();
   let newid = city.find((item) => item.id === parseInt(id));
   const onChangeSearchTitle = (e) => {
-    const searchTitle = e.target.value; //.toUpperCase();
+    const searchTitle = e.target.value.toUpperCase();
     setSearchTitle(searchTitle);
   };
 
@@ -27,7 +27,18 @@ function Home(props) {
     setCurrentCity(city);
     setCurrentIndex(index);
   };
-
+  const findLineByCity = (e) => {
+    e.preventDefault();
+    CityServiceData.findLineByCity(1)
+      .then((response) => {
+        setLine(response.data);
+        const line = response.data;
+        console.log(line);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
   const findByCityName = (e) => {
     e.preventDefault();
     CityServiceData.findByCityName(searchTitle)
@@ -59,7 +70,6 @@ function Home(props) {
           inputProps={{ "aria-label": "Find you City" }}
           onChange={onChangeSearchTitle}
         />
-
         <IconButton type="submit" aria-label="search" onClick={findByCityName}>
           <SearchIcon />
         </IconButton>
@@ -68,7 +78,12 @@ function Home(props) {
         <ul className="list-group">
           {city &&
             city.map((city, index) => (
-              <InsideCity key={index} title={city.cityName} />
+              <InsideCity
+                key={index}
+                title={city.cityName}
+                onClick={findLineByCity}
+                number={line.number}
+              />
             ))}
         </ul>
       </Paper>
