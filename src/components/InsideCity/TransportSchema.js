@@ -1,14 +1,30 @@
 import React from "react";
-import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
+import ReactToPdf from "react-to-pdf";
+import img from "../../assets/img/schema.png";
+
 function TransportSchema() {
+  const ref = React.createRef();
   return (
     <>
-      <Grid item xs={12} sm={6}>
-        <Paper className="paper_C text-secondary container">
-          Travel Schema
-        </Paper>
-      </Grid>
+      <div className="col-md-6 ">
+        <div className="w3-card w3-round w3-white w3-center w3-margin-bottom">
+          <div className="w3-container " ref={ref}>
+            <p>City Travel Schema:</p>
+
+            <img
+              className="mb-0"
+              src={img}
+              alt="Forest"
+              style={{ width: "100%", height: "100%" }}
+            />
+          </div>
+          <ReactToPdf targetRef={ref} filename="Transport_Schema.pdf">
+            {({ toPdf }) => <button onClick={toPdf}>Download</button>}
+          </ReactToPdf>
+        </div>
+      </div>
+
+      <br />
     </>
   );
 }

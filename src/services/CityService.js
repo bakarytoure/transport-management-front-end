@@ -8,4 +8,7 @@ const getAll = () => {
 const findLineByCity = (id) => {
   return http.get(`/city/${id}/line`);
 };
-export default { findByCityName, getAll, findLineByCity };
+const findTicketByCity = (id) => {
+  return http.get(`/city/${id}/ticket`);
+};
+export default { findByCityName, getAll, findLineByCity, findTicketByCity };

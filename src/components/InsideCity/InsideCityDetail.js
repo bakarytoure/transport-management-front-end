@@ -28,31 +28,19 @@ function InsideCityDetail(props) {
   return (
     <>
       <div
-        class="w3-container w3-content"
-        style={{ maxWidth: "1400px", marginTop: "80px" }}
+        className="w3-container w3-content Bg  p-0 "
+        style={{ maxWidth: "1400px", marginTop: "90px" }}
       >
-        <div class="w3-row">
-          <Bus />
+        <div className="row m-0 ">
           <Line />
+          <TransportSchema />
           <Stop />
           <Ticket />
+          {/*<Bus />
+          <Operator />
+          <TravelPlan />*/}
         </div>
       </div>
-      {/*<div className="container w-100 ">
-        <Grid item sm={12} className="d-flex justify-content-between mt-5">
-          <Line />
-          <Stop />
-        </Grid>
-        <Grid item sm={12} className="d-flex justify-content-between mt-1">
-          <Ticket />
-          <Operator />
-        </Grid>
-
-        <Grid item sm={12} className="d-flex justify-content-between mt-1">
-          <TravelPlan />
-          <TransportSchema />
-        </Grid>
-  </div>*/}
     </>
   );
 }
