@@ -15,7 +15,7 @@ function TransportSchema() {
               className="mb-0"
               src={img}
               alt="Forest"
-              style={{ width: "100%", height: "100%" }}
+              style={{ width: "100%", height: "50vh" }}
             />
           </div>
           <ReactToPdf targetRef={ref} filename="Transport_Schema.pdf">

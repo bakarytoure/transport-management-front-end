@@ -97,42 +97,66 @@ function Stop() {
           >
             <TabPanel value={value} index={0} dir={theme.direction}>
               <div className="row">
-                <div className="col-md-6 text-center">Stop</div>
+                <div className="col-md-6 text-center mt-5">Stop</div>
                 <div className="col-md-6">
-                  <img src={img1} alt="Forest" style={{ width: "200px" }} />
+                  <img
+                    src={img1}
+                    alt="Forest"
+                    style={{ width: "288px", height: "150px" }}
+                  />
                 </div>
               </div>
               <div className="row mt-1">
-                <div className="col-md-6 text-center">Bus</div>
+                <div className="col-md-6 text-center mt-5">Bus</div>
                 <div className="col-md-6">
-                  <img src={img2} alt="Forest" style={{ width: "200px" }} />
+                  <img
+                    src={img2}
+                    alt="Forest"
+                    style={{ width: "288px", height: "150px" }}
+                  />
                 </div>
               </div>
             </TabPanel>
             <TabPanel value={value} index={1} dir={theme.direction}>
               <div className="row">
-                <div className="col-md-6 text-center">Stop</div>
+                <div className="col-md-6 text-center mt-5">Stop</div>
                 <div className="col-md-6">
-                  <img src={img3} alt="Forest" style={{ width: "200px" }} />
+                  <img
+                    src={img3}
+                    alt="Forest"
+                    style={{ width: "288px", height: "150px" }}
+                  />
                 </div>
               </div>
               <div className="row mt-1">
-                <div className="col-md-6 text-center">Bus</div>
+                <div className="col-md-6 text-center mt-5">Bus</div>
                 <div className="col-md-6">
-                  <img src={img4} alt="Forest" style={{ width: "200px" }} />
+                  <img
+                    src={img4}
+                    alt="Forest"
+                    style={{ width: "288px", height: "150px" }}
+                  />
                 </div>
               </div>
             </TabPanel>
 
             <TabPanel value={value} index={2} dir={theme.direction}>
               <div className="row mt-1">
-                <div className="col-md-6 text-center">Taxi</div>
+                <div className="col-md-6 text-center mt-5">Taxi</div>
                 <div className="col-md-6">
-                  <img src={img5} alt="Forest" style={{ width: "200px" }} />
+                  <img
+                    src={img5}
+                    alt="Forest"
+                    style={{ width: "288px", height: "150px" }}
+                  />
                 </div>
-                <div className="col-md-6 text-center">Taxi AIBD</div>
+                <div className="col-md-6 text-center mt-5">Taxi AIBD</div>
                 <div className="col-md-6">
-                  <img src={img6} alt="Forest" style={{ width: "200px" }} />
+                  <img
+                    src={img6}
+                    alt="Forest"
+                    style={{ width: "288px", height: "150px" }}
+                  />
                 </div>
               </div>
             </TabPanel>

@@ -7,56 +7,78 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import TableBody from "@material-ui/core/TableBody";
+import CityServiceData from "../../services/CityService";
 import "w3-css/3/w3.css";
-import { withStyles } from "@material-ui/core/styles";
-function createData(name, description, adresse) {
-  return { name, description, adresse };
-}
-const rows = [
-  createData("Dakar DEM DIKK", "Public", "http://demdikk.com/"),
-  createData("ATFU Senegal", "Private", "http://aftu-senegal.org/"),
-];
+import img from "../../assets/img/ddk.png";
+import img1 from "../../assets/img/atfu.png";
 
 function Operator() {
+  const [opera, setOperator] = React.useState([]);
+  const handdleShow = (e) => {
+    e.preventDefault();
+    CityServiceData.findOperatorByCity(1)
+      .then((response) => {
+        setOperator(response.data);
+        const oper = response.data;
+        console.log(oper);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
   return (
     <>
-      <div className="w3-col m6 ">
+      <div className="col-md-8 container ">
         <div className="w3-card w3-round w3-white w3-center w3-margin-bottom ">
           <div className="w3-container ">
-            <p>Bus Stop:</p>
+            <p className="">Operator:</p>
+            <div className="row">
+              <div className="col bg-warning mr-1">
+                Public
+                <div className="row">
+                  <div className="col">
+                    <img src={img} alt="DDK" width="100%" />
+                  </div>
+                  <div className="col">
+                    <div className="btn btn-outline-secondary mt-5 mr-5">
+                      <a
+                        className="ddk"
+                        href="http://demdikk.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        More info
+                      </a>{" "}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col bg-info">
+                Private
+                <div className="row">
+                  <div className="col">
+                    <img src={img1} alt="DDK" width="75%" className="mb-0" />
+                  </div>
+                  <div className="col">
+                    <div className="btn btn-warning mt-5 mr-5">
+                      <a
+                        className="ddk"
+                        href="http://aftu-senegal.org/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        More info
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             {/*<img src={img2} alt="Forest" style={{ width: "200px" }} />*/}
           </div>
         </div>
       </div>
       <br />
-      <div className="w3-row w3-opacity">
-        <div className="w3-half">
-          <button className="w3-button w3-block w3-green w3-section w3-margin-left">
-            <a
-              href="http://demdikk.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              DDK
-            </a>
-            <br />
-            Public
-          </button>
-        </div>
-        <div className="w3-half">
-          <button className="w3-button w3-block w3-red w3-section">
-            <a
-              href="http://aftu-senegal.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              ATFU
-            </a>
-            <br />
-            Private
-          </button>
-        </div>
-      </div>
     </>
   );
 }

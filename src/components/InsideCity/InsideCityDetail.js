@@ -31,13 +31,13 @@ function InsideCityDetail(props) {
         className="w3-container w3-content Bg  p-0 "
         style={{ maxWidth: "1400px", marginTop: "90px" }}
       >
-        <div className="row m-0 ">
+        <div className="row m-0 bg">
           <Line />
           <TransportSchema />
           <Stop />
           <Ticket />
-          {/*<Bus />
           <Operator />
+          {/*<Bus />
           <TravelPlan />*/}
         </div>
       </div>
