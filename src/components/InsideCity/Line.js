@@ -51,12 +51,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Line(props) {
-  const classes = useStyles();
   const [value, setValue] = React.useState(0);
   const [line, setLine] = React.useState([]);
   const handleChange = (e, newValue) => {
     e.preventDefault();
-    CityServiceData.findLineByCity(1)
+    CityServiceData.findLineByCity(props.id)
       .then((response) => {
         setLine(response.data);
         const line = response.data;
@@ -76,7 +75,7 @@ function Line(props) {
         <div className="w3-container w3-card w3-white w3-margin-left w3-margin-right w3-margin-bottom m3">
           <br />
 
-          <h4>Available bus</h4>
+          <h4>Available bus inside {props.title}</h4>
 
           <hr className="w3-clear" />
 

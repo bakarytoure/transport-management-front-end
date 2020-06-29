@@ -6,13 +6,13 @@ import tick1 from "../../assets/img/tick1.jpg";
 import tick2 from "../../assets/img/tick2.jpg";
 import tick3 from "../../assets/img/tick3.jpg";
 import "w3-css/3/w3.css";
-function Ticket() {
+function Ticket(props) {
   const [ticket, setTicket] = React.useState([]);
   const [show, setShow] = React.useState(true);
   const ticketDetail = (e) => {
     setShow(!show);
     e.preventDefault();
-    CityServiceData.findTicketByCity(1)
+    CityServiceData.findTicketByCity(props.id)
       .then((response) => {
         setTicket(response.data);
         const ticket = response.data;

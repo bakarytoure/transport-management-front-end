@@ -19,12 +19,7 @@ export default function Modal(props) {
 
   return (
     <>
-      <Button
-        //variant="outlined"
-        color="primary"
-        className="button m-1"
-        onClick={handleClickOpen}
-      >
+      <Button color="primary" className="button m-1" onClick={handleClickOpen}>
         <span className="button--item">{props.line}</span>
       </Button>
       <Dialog

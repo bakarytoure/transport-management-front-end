@@ -1,17 +1,38 @@
 import React from "react";
-import Grid from "@material-ui/core/Grid";
+import { useParams, useHistory } from "react-router-dom";
+import CityServiceData from "../../services/CityService";
+import Paper from "@material-ui/core/Paper";
+import InputBase from "@material-ui/core/InputBase";
+import IconButton from "@material-ui/core/IconButton";
+import SearchIcon from "@material-ui/icons/Search";
+//import InsideCity from "./InsideCity/InsideCity";
+import Autocomplete from "@material-ui/lab/Autocomplete";
+import TextField from "@material-ui/core/TextField";
 import Line from "./Line";
 import Stop from "./Stop";
-import Bus from "./Bus";
 import Ticket from "./Ticket";
-import TravelPlan from "./TravelPlan";
 import Operator from "./Operator";
-import { useParams } from "react-router-dom";
 import TransportSchema from "./TransportSchema";
-import CityServiceData from "../../services/CityService";
-//const {id}= useParams();
+import "w3-css/3/w3.css";
 function InsideCityDetail(props) {
+  const [city, setCity] = React.useState([]);
+  const [currentcity, setCurrentCity] = React.useState([]);
+  const [currentIndex, setCurrentIndex] = React.useState(-1);
   const [line, setLine] = React.useState([]);
+  const [show, setShow] = React.useState(false);
+  const [searchTitle, setSearchTitle] = React.useState("");
+  const { id } = useParams();
+  //let history = useHistory();
+  //let newid = city.find((item) => item.id === parseInt(id));
+  const onChangeSearchTitle = (e) => {
+    const searchTitle = e.target.value.toUpperCase();
+    setSearchTitle(searchTitle);
+  };
+
+  const setActiveCity = (city, index) => {
+    setCurrentCity(city);
+    setCurrentIndex(index);
+  };
   const findLineByCity = (e) => {
     e.preventDefault();
     CityServiceData.findLineByCity(1)
@@ -24,21 +45,58 @@ function InsideCityDetail(props) {
         console.log(e);
       });
   };
-
+  const findByCityName = (e) => {
+    e.preventDefault();
+    CityServiceData.findByCityName(searchTitle)
+      .then((response) => {
+        setCity(response.data);
+        const city = response.data;
+        console.log(city);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+    setSearchTitle("");
+  };
   return (
     <>
+      <Paper
+        component="form"
+        className=" mx-auto Home d-flex justify-content-between"
+        elevation={2}
+      >
+        <InputBase
+          className="input"
+          placeholder="Find your City"
+          value={searchTitle}
+          inputProps={{ "aria-label": "Find you City" }}
+          onChange={onChangeSearchTitle}
+        />
+        <IconButton
+          type="submit"
+          aria-label="search"
+          className=""
+          onClick={findByCityName}
+        >
+          <SearchIcon />
+        </IconButton>
+      </Paper>
+
       <div
         className="w3-container w3-content Bg  p-0 "
         style={{ maxWidth: "1400px", marginTop: "90px" }}
       >
         <div className="row m-0 bg">
-          <Line />
-          <TransportSchema />
-          <Stop />
-          <Ticket />
-          <Operator />
-          {/*<Bus />
-          <TravelPlan />*/}
+          {city &&
+            city.map((city, index) => (
+              <>
+                <Line key={index} id={city.id} title={city.cityName} />
+                <TransportSchema id={city.id} title={city.cityName} />
+                <Stop id={city.id} title={city.cityName} />
+                <Ticket id={city.id} title={city.cityName} />
+                <Operator id={city.id} title={city.cityName} />
+              </>
+            ))}
         </div>
       </div>
     </>

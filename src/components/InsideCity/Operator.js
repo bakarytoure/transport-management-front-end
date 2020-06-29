@@ -11,12 +11,11 @@ import CityServiceData from "../../services/CityService";
 import "w3-css/3/w3.css";
 import img from "../../assets/img/ddk.png";
 import img1 from "../../assets/img/atfu.png";
-
-function Operator() {
+function Operator(props) {
   const [opera, setOperator] = React.useState([]);
   const handdleShow = (e) => {
     e.preventDefault();
-    CityServiceData.findOperatorByCity(1)
+    CityServiceData.findOperatorByCity(props.id)
       .then((response) => {
         setOperator(response.data);
         const oper = response.data;
@@ -82,5 +81,4 @@ function Operator() {
     </>
   );
 }
-
 export default Operator;

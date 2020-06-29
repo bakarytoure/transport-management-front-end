@@ -1,5 +1,7 @@
 @import "~bootstrap/scss/bootstrap";
 @import "./styles/components/home";
+@import "./styles/navbar.scss";
+@import "./styles/components/footer";
 @import "./styles/components/insidecity";
 @import "./styles/components/insidecitydetail";
 @import "./styles/components/line";
@@ -9,4 +11,8 @@
 @import "./styles/components/travelplan";
 @import "./styles/components/transportschema";
 @import "./styles/components/modal";
+@import "./styles/components/contact";
+@import "./styles/components/map";
+@import "./styles/components/transport";
+@import "./styles/components/about";
 @import "./styles/bases";
