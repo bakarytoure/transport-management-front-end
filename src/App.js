@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./components/Home";
 
 import InsideCityDetail from "./components/InsideCity/InsideCityDetail";
+import BetweenCityDetail from "./components/BetweenCity/BetweenCityDetail";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import About from "./components/About";
@@ -34,6 +35,9 @@ function App() {
 
           <Route exact path="/insidecity">
             <InsideCityDetail />
+          </Route>
+          <Route exact path="/betweencity">
+            <BetweenCityDetail />
           </Route>
         </Switch>
         <Footer />

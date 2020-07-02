@@ -14,7 +14,7 @@ import img4 from "../../assets/img/photo/bus-tata.jpg";
 import img3 from "../../assets/img/photo/tata-stop.jpg";
 import img5 from "../../assets/img/taxi_.jpg";
 import img6 from "../../assets/img/taxi-aibd.jpg";
-
+import AOS from "aos";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -61,7 +61,9 @@ function Stop() {
   const classes = useStyles();
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
-
+  React.useEffect(() => {
+    AOS.init({ animation: 2000 });
+  }, []);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -72,8 +74,11 @@ function Stop() {
 
   return (
     <div className="col-md-6">
-      <div className="w3-container w3-card w3-white w3-margin-left w3-margin-right w3-margin-bottom m3 cus-h">
-        <div className="text-center"> Vehicle and Stop </div>
+      <div className="w3-container w3-card w3-white  w3-margin-bottom m3 cus-h">
+        <div className="text-center" data-aos="fade-in">
+          {" "}
+          Vehicle and Stop{" "}
+        </div>
         <br />
         <div className={classes.root}>
           <AppBar position="static" color="default">

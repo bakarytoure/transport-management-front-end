@@ -14,6 +14,7 @@ import Ticket from "./Ticket";
 import Operator from "./Operator";
 import TransportSchema from "./TransportSchema";
 import "w3-css/3/w3.css";
+import AOS from "aos";
 function InsideCityDetail(props) {
   const [city, setCity] = React.useState([]);
   const [currentcity, setCurrentCity] = React.useState([]);
@@ -22,13 +23,13 @@ function InsideCityDetail(props) {
   const [show, setShow] = React.useState(false);
   const [searchTitle, setSearchTitle] = React.useState("");
   const { id } = useParams();
-  //let history = useHistory();
-  //let newid = city.find((item) => item.id === parseInt(id));
   const onChangeSearchTitle = (e) => {
     const searchTitle = e.target.value.toUpperCase();
     setSearchTitle(searchTitle);
   };
-
+  React.useEffect(() => {
+    AOS.init({ animation: 2000, delay: 1000 });
+  }, []);
   const setActiveCity = (city, index) => {
     setCurrentCity(city);
     setCurrentIndex(index);
@@ -84,6 +85,7 @@ function InsideCityDetail(props) {
 
       <div
         className="w3-container w3-content Bg  p-0 "
+        data-aos="fade-right"
         style={{ maxWidth: "1400px", marginTop: "90px" }}
       >
         <div className="row m-0 bg">

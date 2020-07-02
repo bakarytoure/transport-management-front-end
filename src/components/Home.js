@@ -24,7 +24,7 @@ function Home() {
             <div className="text text-uppercase text-center font-weight-bold">
               <h1>Welcome to city adviser</h1>
               <h5>were we help you move around the city</h5>
-              <a href="insidecity.html">
+              <a>
                 <button
                   type="button"
                   className="btn btn_green btn-lg text-uppercase mr-2"
@@ -32,12 +32,12 @@ function Home() {
                   <Link to="/insidecity">Inside City</Link>
                 </button>
               </a>
-              <a href="betweencity.html">
+              <a>
                 <button
                   type="button"
                   className="btn btn_green btn-lg text-uppercase"
                 >
-                  Between City
+                  <Link to="/betweencity">Between City</Link>
                 </button>
               </a>
             </div>

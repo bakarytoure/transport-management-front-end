@@ -14,10 +14,18 @@ const findTicketByCity = (id) => {
 const findOperatorByCity = (id) => {
   return http.get(`/city/${id}/operators`);
 };
+const findTransBusByCity = (id) => {
+  return http.get(`/city/${id}/travelBus`);
+};
+const findTransPlaneByCity = (id) => {
+  return http.get(`/city/${id}/travelPlane`);
+};
 export default {
   findByCityName,
   getAll,
   findLineByCity,
   findTicketByCity,
   findOperatorByCity,
+  findTransBusByCity,
+  findTransPlaneByCity,
 };

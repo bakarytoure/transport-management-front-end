@@ -10,6 +10,8 @@ import Grid from "@material-ui/core/Grid";
 import CityServiceData from "../../services/CityService";
 import Modal from "../Modal";
 import "w3-css/3/w3.css";
+import AOS from "aos";
+import Pagination from "../Pagination";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -51,8 +53,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Line(props) {
+  React.useEffect(() => {
+    AOS.init({ animation: 2000, delay: 1000 });
+  }, []);
   const [value, setValue] = React.useState(0);
   const [line, setLine] = React.useState([]);
+
   const handleChange = (e, newValue) => {
     e.preventDefault();
     CityServiceData.findLineByCity(props.id)
@@ -72,7 +78,10 @@ function Line(props) {
       {/** middle column */}
 
       <div className="col-md-6 ">
-        <div className="w3-container w3-card w3-white w3-margin-left w3-margin-right w3-margin-bottom m3 cus-h">
+        <div
+          className="w3-container w3-card w3-white w3-margin-bottom m3 cus-h"
+          data-aos="fade-right"
+        >
           <br />
 
           <h4>Available bus inside {props.title}</h4>
@@ -87,8 +96,8 @@ function Line(props) {
                 aria-label="simple tabs example"
               >
                 <Tab label="Bus" {...a11yProps(0)} />
-                <Tab label="Train" {...a11yProps(1)} />
-                <Tab label="Plane" {...a11yProps(2)} />
+                <Tab label="" {...a11yProps(1)} />
+                <Tab label="" {...a11yProps(2)} />
               </Tabs>
             </AppBar>
 
@@ -115,6 +124,9 @@ function Line(props) {
             </TabPanel>
           </Grid>
         </div>
+        {line.map((line, index) => (
+          <Pagination key={index} line={line.number} />
+        ))}
       </div>
     </>
   );
