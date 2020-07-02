@@ -5,6 +5,7 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import Typed from "react-typed";
 
 export default function Modal(props) {
   const [open, setOpen] = React.useState(false);
@@ -22,16 +23,25 @@ export default function Modal(props) {
       <Button color="primary" className="button m-1" onClick={handleClickOpen}>
         <span className="button--item">{props.line}</span>
       </Button>
+
       <Dialog
+        className="container "
         open={open}
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">{"Travel plan"}</DialogTitle>
-        <DialogContent>
+        <DialogContent className="">
           <DialogContentText id="alert-dialog-description">
-            {props.destination}
+            <Typed
+              className="text-info h3"
+              typeSpeed={60}
+              backSpeed={90}
+              //loop
+              //backDelay={2000}
+              strings={[`${props.destination}`]}
+            />
           </DialogContentText>
         </DialogContent>
         <DialogActions>

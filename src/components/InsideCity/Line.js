@@ -71,8 +71,8 @@ function Line(props) {
     <>
       {/** middle column */}
 
-      <div className="col-md-6">
-        <div className="w3-container w3-card w3-white w3-margin-left w3-margin-right w3-margin-bottom m3">
+      <div className="col-md-6 ">
+        <div className="w3-container w3-card w3-white w3-margin-left w3-margin-right w3-margin-bottom m3 cus-h">
           <br />
 
           <h4>Available bus inside {props.title}</h4>

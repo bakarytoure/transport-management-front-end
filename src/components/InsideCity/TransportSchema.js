@@ -7,7 +7,7 @@ function TransportSchema() {
   return (
     <>
       <div className="col-md-6 ">
-        <div className="w3-card w3-round w3-white w3-center w3-margin-bottom">
+        <div className="w3-card w3-round w3-white w3-center w3-margin-bottom cus-h">
           <div className="w3-container " ref={ref}>
             <p>City Travel Schema:</p>
 

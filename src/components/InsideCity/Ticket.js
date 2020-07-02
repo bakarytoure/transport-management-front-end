@@ -29,7 +29,7 @@ function Ticket(props) {
     <>
       {/** right column*/}
       <div className="col-md-6">
-        <div className="w3-card w3-round w3-white w3-center ">
+        <div className="w3-container w3-card w3-white w3-margin-left w3-margin-right w3-margin-bottom m3 cus-h">
           <div className="w3-container">
             <p>Ticket:</p>
             why to buy?

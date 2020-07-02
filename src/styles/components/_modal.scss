@@ -2,8 +2,12 @@
   list-style: none;
   text-decoration: none;
   //background: orangered !important;
-  background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
-
+  //background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
+  background: #f28123 !important;
+  transition: all 3s ease-in-out !important;
+  &:hover {
+    background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%) !important;
+  }
   &--item {
     color: white;
     font-size: 30px;

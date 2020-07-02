@@ -28,7 +28,7 @@ function Operator(props) {
   return (
     <>
       <div className="col-md-8 container ">
-        <div className="w3-card w3-round w3-white w3-center w3-margin-bottom ">
+        <div className="w3-card w3-round w3-white w3-center w3-margin-bottom cus-h ">
           <div className="w3-container ">
             <p className="">Operator:</p>
             <div className="row">
